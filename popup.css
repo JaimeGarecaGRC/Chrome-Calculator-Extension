@@ -1,0 +1,130 @@
+@font-face {
+    font-family: 'Digital-7';
+    src: URL('digital-7.regular.ttf') format('truetype');
+}
+
+body{
+    background-color: #064789;
+    color: #EBF2FA;
+    width: 160px;
+    height: 250px;
+}
+
+.calculator-container{
+    display: grid;
+    grid-template-columns: 40px 40px 40px 40px;
+    grid-template-rows: 50px 40px 40px 40px 40px 40px;
+    grid-template-areas: 
+        "form form form form"
+        "percentage negative raise divider"
+        "seven eight nine multi"
+        "four five six minus"
+        "one two three plus"
+        "clear zer point equal"
+    ;
+}
+
+.container {
+    text-align: center;
+    border-radius: 5px;
+    margin: 1px;
+}
+
+.container.number{
+    background-color: #427AA1;
+}
+
+.container.operator{
+    background-color: #3B6D91;
+}
+
+
+
+.container.equal{
+    background-color: #F4D35E;
+}
+
+.container.clear{
+    background-color: #FB3640;
+}
+
+
+.container p{
+    font-family: Digital-7;
+    font-size: 1.5em;
+    line-height: 30%;
+}
+
+.form{
+    grid-area: form;
+}
+
+.negative{
+    grid-area: negative;
+}
+
+.raise{
+    grid-area: raise;
+}
+
+.percentage{
+    grid-area: percentage;
+}
+
+.divider{
+    grid-area: divider;
+}
+
+.multi{
+    grid-area: multi;
+}
+
+.plus{
+    grid-area: plus;
+}
+
+.minus{
+    grid-area: minus;
+}
+
+
+.one{
+    grid-area: one;
+}
+
+.two{
+    grid-area: two;
+}
+
+.three{
+    grid-area: three;
+}
+
+.four{
+    grid-area: four;
+}
+
+.five{
+    grid-area: five;
+}
+
+.six{
+    grid-area: six;
+}
+
+.seven{
+    grid-area: seven;
+}
+
+.eight{
+    grid-area: eight;
+}
+
+.nine{
+    grid-area: nine;
+}
+
+.zer{
+    grid-area: zer;
+}
+
