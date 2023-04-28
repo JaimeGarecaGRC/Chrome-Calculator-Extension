@@ -24,6 +24,18 @@ body{
     ;
 }
 
+button {
+    font-family: Digital-7;
+    font-size: 1.5em;
+    line-height: 30%;
+    border: none;
+    background-color: #427AA1;
+    color: #EBF2FA;
+    border-radius: 5px;
+    margin: 1px;
+    text-align: center;
+}
+
 .container {
     text-align: center;
     border-radius: 5px;
@@ -34,8 +46,8 @@ body{
     background-color: #427AA1;
 }
 
-.container.operator{
-    background-color: #3B6D91;
+.container.number{
+    background-color: #427AA1;
 }
 
 
