@@ -29,11 +29,26 @@ button {
     font-size: 1.5em;
     line-height: 30%;
     border: none;
-    background-color: #427AA1;
     color: #EBF2FA;
     border-radius: 5px;
     margin: 1px;
     text-align: center;
+}
+
+button.operator {
+    background-color: #3E70A3;
+}
+
+button.number {
+    background-color: #4783AE;
+}
+
+button.clear {
+    background-color: #FB3640;;
+}
+
+button.equal {
+    background-color: #F4D35E;
 }
 
 .container {
@@ -41,25 +56,6 @@ button {
     border-radius: 5px;
     margin: 1px;
 }
-
-.container.number{
-    background-color: #427AA1;
-}
-
-.container.number{
-    background-color: #427AA1;
-}
-
-
-
-.container.equal{
-    background-color: #F4D35E;
-}
-
-.container.clear{
-    background-color: #FB3640;
-}
-
 
 .container p{
     font-family: Digital-7;
