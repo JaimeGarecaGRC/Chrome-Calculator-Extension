@@ -40,6 +40,15 @@ clear.addEventListener("click", () => {
 
 equal.addEventListener("click", () => {
 
+    for(let i = 0; i < value.length; i++){
+        if(value[i] === "*"){
+            value[i] = value[i-1] * value[i+1];
+            console.log(value[i]);
+            value.splice(i+1, 1);
+            value.splice(i-1, 1);
+            console.log(value);
+        }
+    }
 
     for(let i = 0; i < value.length; i++){
         if( typeof value[i] === "number" )
@@ -62,7 +71,7 @@ equal.addEventListener("click", () => {
 
     formula.textContent = result;
 
-    value = [0];
+    value = [result];
     result = 0;
     index = 0;
     
