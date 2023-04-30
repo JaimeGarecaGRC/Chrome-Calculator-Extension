@@ -43,31 +43,13 @@ equal.addEventListener("click", () => {
     for(let i = 0; i < value.length; i++){
         if(value[i] === "*"){
             value[i] = value[i-1] * value[i+1];
-            console.log(value[i]);
             value.splice(i+1, 1);
             value.splice(i-1, 1);
-            console.log(value);
+            i--;
         }
     }
 
-    for(let i = 0; i < value.length; i++){
-        if( typeof value[i] === "number" )
-            result = value[i];
-        else
-            switch (true) {
-                case (value[i] === "+"):
-                    result += value[i+1];
-                    i++;
-                    break;
-                case (value[i] ==="-"):
-                    result -= value[i+1];
-                    i++;
-                    break;
-                default:
-                    console.log(value[i]);
-                    break;
-            }
-    }
+    result = addAndSub(value);
 
     formula.textContent = result;
 
@@ -76,4 +58,30 @@ equal.addEventListener("click", () => {
     index = 0;
     
 })
+
+function addAndSub(value){
+
+    let res = 0;
+
+    for(let i = 0; i < value.length; i++){
+        if( typeof value[i] === "number" )
+            res = value[i];
+        else
+            switch (true) {
+                case (value[i] === "+"):
+                    res += value[i+1];
+                    i++;
+                    break;
+                case (value[i] ==="-"):
+                    res -= value[i+1];
+                    i++;
+                    break;
+                default:
+                    console.log(value[i]);
+                    break;
+            }
+    }
+
+    return res;
+}
 
