@@ -4,10 +4,12 @@ const operators = document.getElementsByClassName("operator");
 
 const formula = document.getElementById("formula");
 const clear = document.getElementById("clear");
+const equal = document.getElementById("equal");
 
 let value = [0];
 let index = 0;
 let ini;
+let result = 0;
 
 for (let i = 0; i < numbers.length; i++) {
     numbers[i].addEventListener("click", () => {
@@ -23,6 +25,7 @@ for ( let i = 0; i < operators.length; i++) {
         index++;
         value[index] = operators[i].textContent;
         formula.textContent = formula.textContent + value[index];
+        value[index] = value[index].replace(/\s/g, "");
         index++;
         value[index] = 0;
     })
@@ -35,4 +38,33 @@ clear.addEventListener("click", () => {
     formula.textContent = value[index];
 })
 
+equal.addEventListener("click", () => {
+
+
+    for(let i = 0; i < value.length; i++){
+        if( typeof value[i] === "number" )
+            result = value[i];
+        else
+            switch (true) {
+                case (value[i] === "+"):
+                    result += value[i+1];
+                    i++;
+                    break;
+                case (value[i] ==="-"):
+                    result -= value[i+1];
+                    i++;
+                    break;
+                default:
+                    console.log(value[i]);
+                    break;
+            }
+    }
+
+    formula.textContent = result;
+
+    value = [0];
+    result = 0;
+    index = 0;
+    
+})
 
