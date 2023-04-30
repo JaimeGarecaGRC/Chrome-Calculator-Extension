@@ -39,7 +39,48 @@ clear.addEventListener("click", () => {
 })
 
 equal.addEventListener("click", () => {
+    
+    result = resolve(value);
+    formula.textContent = result;
+    value = [result];
+    result = 0;
+    index = 0;
+    
+})
 
+function resolve(value){
+    let simpliValue = [];
+    let indx = 0;
+    let lastPos = 0;
+    let result;
+
+    for(let i = 0; i < value.length; i++){
+        if(value[i] === "/" || (i+1) === value.length){
+            let tempValue = value.slice(lastPos, (i+1) === value.length ? i+1 : i );
+            tempValue = multiply(tempValue);
+            simpliValue[indx] = addAndSub(tempValue);
+
+            console.log(simpliValue);
+
+            indx++;
+            lastPos = i+1;
+        }
+    }
+
+    if ( simpliValue.length === 1)
+        result = simpliValue[0];
+
+    if( simpliValue.length > 1){
+        result = simpliValue[0];
+        for(let i = 1; i < simpliValue.length; i++ ){
+            result /= simpliValue[i];
+        }
+    }
+
+    return result;
+}
+
+function multiply(value){
     for(let i = 0; i < value.length; i++){
         if(value[i] === "*"){
             value[i] = value[i-1] * value[i+1];
@@ -49,15 +90,8 @@ equal.addEventListener("click", () => {
         }
     }
 
-    result = addAndSub(value);
-
-    formula.textContent = result;
-
-    value = [result];
-    result = 0;
-    index = 0;
-    
-})
+    return value;
+}
 
 function addAndSub(value){
 
