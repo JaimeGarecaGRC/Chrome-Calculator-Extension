@@ -57,10 +57,9 @@ function resolve(value){
     for(let i = 0; i < value.length; i++){
         if(value[i] === "/" || (i+1) === value.length){
             let tempValue = value.slice(lastPos, (i+1) === value.length ? i+1 : i );
+            tempValue = raise(tempValue);
             tempValue = multiply(tempValue);
             simpliValue[indx] = addAndSub(tempValue);
-
-            console.log(simpliValue);
 
             indx++;
             lastPos = i+1;
@@ -86,6 +85,25 @@ function multiply(value){
             value[i] = value[i-1] * value[i+1];
             value.splice(i+1, 1);
             value.splice(i-1, 1);
+            i--;
+        }
+    }
+
+    return value;
+}
+
+function raise(value){
+    let pot = 0;
+    for(let i = 0; i < value.length; i++){
+        if(value[i] === "^"){
+            value[i - 1] = value[ i-1 ] ** value[ i+1 ];
+            // for(let i = 0; i < value[i + 1]; i++){
+            //     value[i-1] *= pot; 
+            //     console.log(value[i+1] *= pot);
+            //}
+
+            value.splice(i, 2);
+
             i--;
         }
     }
